@@ -87,16 +87,28 @@
 	object { big_horizontal_border translate<0,3.5,8> }
 }
 
-#declare panel_panel = difference {
-	object { panel_core_with_border }
-	box {
-		<0,0,0> <10,6,10>
-		translate<10, -0.5, 2>
+#declare panel_central_light = prism {
+	linear_spline
+	0, 2, 3,
+	<0,0>, <0.5,1.5>, <-0.5,1.5>
+	rotate<90,90,0>
+	/* translate<5,5,-10> */
+	pigment { color Orange }
+}
+
+#declare panel = union {
+	difference {
+		object { panel_core_with_border }
+		box {
+			<0,0,0> <10,6,10>
+			translate<10, -0.5, 2>
+		}
 	}
+	object { panel_central_light rotate<10,0,0> translate<14,6.5,1> }
 }
 
 #declare panel_with_support = union {
-	object { panel_panel }
+	object { panel }
 	prism {
 		linear_spline
 		0, 3, 4,
@@ -113,17 +125,17 @@
 
 #declare small_radar_box = difference {
 	box {
-		<0,0,0> <6,6,5>
+		<0,0,0> <5.5,6,3.5>
 	}
 	box {
 		<0,0,0> <6,7,10>
 		rotate<0,5,0>
-		translate<-6,-0.5,0>
+		translate<-5.5,-0.5,0>
 	}
 	box {
 		<0,0,0> <6,7,10>
 		rotate<0,-5,0>
-		translate<6,-0.5,0>
+		translate<5.5,-0.5,0>
 	}
 	box {
 		<0,0,0> <7,7,15>

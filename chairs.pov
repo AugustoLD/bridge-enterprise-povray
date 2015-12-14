@@ -1,6 +1,7 @@
 #include "camera.inc"
 #include "room_elements.pov"
 #include "shapes.inc"
+#include "textures.inc"
 
 camera {
 	location<-8,20,16>
@@ -66,6 +67,7 @@ camera {
 #declare captain_chair_base_structure = union {
 	object { captain_chair_base }
 	object { captain_chair_structure translate<4,6,3.5> }
+	texture { Soft_Silver }
 }
 
 #declare captain_chair_upholster_arm = object {
@@ -124,11 +126,4 @@ camera {
 	object { captain_chair_upholster translate<4,8.5,3.5> }
 	object { captain_chair_arm_detail translate<4,13,3.5> }
 	object { captain_chair_arm_detail translate<11.6,13,3.5> }
-}
-
-union {
-	object { full_panel }
-	object { full_base }
-	object { captain_chair translate<7,-10,23> }
-	scale <1.1,1,1>
 }
