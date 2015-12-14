@@ -1,49 +1,5 @@
 #include "colors.inc"
 
-background { color White }
-
-camera {
-	location <-20, 8, -10>
-	look_at <0, 0, 0>
-}
-
-/* de cima */
-/* camera { */
-/* 	location <15, 40, 5> */
-/* 	look_at <15, 0, 5> */
-/* } */
-
-/* lateral */
-/* camera { */
-/* 	location <-30,2,4> */
-/* 	look_at <0,2,4> */
-/* } */
-
-/* frontal */
-/* camera { */
-/* 	location <16,4,-30> */
-/* 	look_at <16,4,0> */
-/* } */
-
-/* traseira */
-/* camera { */
-/* 	location <15,4,50> */
-/* 	look_at <15,4,0> */
-/* } */
-
-/* camera { */
-/* 	location <-4,4,50> */
-/* 	look_at <-4,4,0> */
-/* } */
-
-camera {
-	location <-15,15,40>
-	look_at <15,4,0>
-}
-
-light_source { <15, 4, -20> color White }
-light_source { <15, 20, 4> color White }
-
 #declare panel_core = difference {
 	box {
 		<0,0,0,>, <30,5,8>
