@@ -1,20 +1,13 @@
 #include "camera.inc"
 #include "shapes3.inc"
+#include "stones.inc"
 #include "textures.inc"
+#include "my_textures.inc"
+#include "wall.inc"
 #include "chairs.pov"
+#include "stars.inc"
 
 /* global_settings { ambient_light } */
-
-#declare carpet = texture {
-	White_Wood
-	/* pigment { */
-	/* 	color_map { */
-	/* 		[0.0 color Black] */
-	/* 		[0.5 color Gray10] */
-	/* 		[1.0 color Gray20] */
-	/* 	} */
-	/* } */
-}
 
 camera {
 	location<0,100,0>
@@ -22,8 +15,13 @@ camera {
 }
 
 camera {
-	location<-60,50,-40>
+	location<-60,80,-40>
 	look_at<0,0,0>
+}
+
+camera {
+	location<0,40,50>
+	look_at<0,30,-60>
 }
 
 /* camera { */
@@ -38,6 +36,11 @@ camera {
 
 /* camera { */
 /* 	camera_original */
+/* } */
+
+/* camera { */
+/* 	location<0,200,0> */
+/* 	look_at<0,0,0> */
 /* } */
 
 union {
@@ -72,18 +75,25 @@ union {
 	rotate<0,9,0>
 }
 
-object { stair translate<35,2.5,13>}
-object { stair rotate<0,180,0> translate<-35,2.5,-13>}
-object { stair rotate<0,90,0> translate<13,2.5,-35>}
+object { stair translate<35,2.5,11.5>}
+object { stair rotate<0,180,0> translate<-35,2.5,-11.5>}
+object { stair rotate<0,90,0> translate<11.5,2.5,-35>}
 
-object { room_border rotate<0,0,0> translate <0,15,0>}
-object { room_border rotate<0,90,0> translate <0,15,0>}
-object { room_border rotate<0,-90,0> translate <0,15,0>}
-object { room_border rotate<0,180,0> translate <0,15,0>}
+object { room_border rotate<0,0,0> translate <0,4.5,0>}
+object { room_border rotate<0,90,0> translate <0,4.5,0>}
+object { room_border rotate<0,-90,0> translate <0,4.5,0>}
+object { room_border rotate<0,180,0> translate <0,4.5,0>}
+
+/* plane { */
+/* 	<0,1,0>, 5 */
+/* 	texture { */
+/* 		carpet */
+/* 	} */
+/* } */
 
 difference {
 	object {
-		Column_N(20, 90, 8)
+		Column_N(20, 80, 8)
 	}
 	object {
 		Column_N(20, 46, 10)
@@ -93,4 +103,11 @@ difference {
 	texture {
 		carpet
 	}
+}
+
+object { wall translate<0,8,0> }
+
+sphere{ <0,0,0>, 1
+	texture{ Starfield1 }
+	scale 10000
 }

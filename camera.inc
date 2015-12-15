@@ -50,19 +50,19 @@ background { color White }
 /* light_source { <15, 4, -20> color White } */
 /* light_source { <15, 20, 4> color White } */
 /* light_source { <15, 4, 50> color White } */
+light_source {
+	<0, 30, 0>
+	color Gray
+	spotlight
+	radius 100
+}
+
 /* light_source { */
-/* 	<0, 30, 0> */
-/* 	color Gray */
-/* 	spotlight */
-/* 	radius 100 */
+/* 	<30, 15, -30> */
+/* 	color Gray35 */
 /* } */
 
-light_source {
-	<30, 15, -30>
-	color Gray35
-}
-
-light_source {
-	<-30, 15, 0>
-	color Gray35
-}
+/* light_source { */
+/* 	<-30, 15, 0> */
+/* 	color Gray35 */
+/* } */

@@ -1,4 +1,14 @@
 #include "colors.inc"
+#include "camera.inc"
+
+camera {
+	camera_back
+}
+
+/* camera { */
+/* 	location<3,30,3> */
+/* 	look_at<3,0,3> */
+/* } */
 
 #declare panel_core = difference {
 	box {
@@ -123,26 +133,50 @@
 	}
 }
 
-#declare small_radar_box = difference {
-	box {
-		<0,0,0> <5.5,6,3.5>
+/* camera { */
+/* 	location<2,20, 2> */
+/* 	look_at<2,0,2> */
+/* } */
+
+/* camera { */
+/* 	location<-20,6, 2> */
+/* 	look_at<2,6,2> */
+/* } */
+
+#declare small_radar_box = union {
+	difference {
+		box {
+			<0,0,0> <5.5,6,3.5>
+		}
+		box {
+			<0,0,0> <6,7,10>
+			rotate<0,5,0>
+			translate<-5.5,-0.5,0>
+		}
+		box {
+			<0,0,0> <6,7,10>
+			rotate<0,-5,0>
+			translate<5.5,-0.5,0>
+		}
+		box {
+			<0,0,0> <7,7,15>
+			rotate<10,0,0>
+			translate<-0.5,6,0>
+		}
+		pigment { color White }
 	}
-	box {
-		<0,0,0> <6,7,10>
-		rotate<0,5,0>
-		translate<-5.5,-0.5,0>
+	box{
+		<0,0,0>, <1,1,0>
+		pigment {
+			image_map {
+				png "small_radar.png"
+				once
+			}
+		}
+		scale<4,2,1>
+		rotate<100,0,0>
+		translate<1,6,0.001>
 	}
-	box {
-		<0,0,0> <6,7,10>
-		rotate<0,-5,0>
-		translate<5.5,-0.5,0>
-	}
-	box {
-		<0,0,0> <7,7,15>
-		rotate<10,0,0>
-		translate<-0.5,6,0>
-	}
-	pigment { color White }
 }
 
 /* #declare radar_box = difference { */
@@ -160,6 +194,18 @@
 		}
 		rotate<0,180,0>
 	}
+	box{
+		<0,0,0>, <1,1,0>
+		pigment {
+			image_map {
+				png "radar.png"
+				once
+			}
+		}
+		scale<9,11.5,1>
+		rotate<-45,0,0>
+		translate<-9.5,6,0.0001>
+	}
 	object {
 		small_radar_box
 		translate<-8,0,0>
@@ -170,3 +216,5 @@
 	object { panel_with_support }
 	object { radar_box translate<20,-11.5,12> }
 }
+
+object { full_panel }
