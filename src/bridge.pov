@@ -1,47 +1,18 @@
-#include "camera.inc"
+#version 3.7;
+
+#include "cameras.inc"
 #include "shapes3.inc"
 #include "stones.inc"
 #include "textures.inc"
 #include "my_textures.inc"
 #include "wall.inc"
-#include "chairs.pov"
+#include "chairs.inc"
 #include "stars.inc"
-
-/* global_settings { ambient_light } */
-
-camera {
-	location<0,100,0>
-	look_at<0,0,0>
-}
+#include "lights.inc"
 
 camera {
-	location<-60,80,-40>
-	look_at<0,0,0>
+	camera_original
 }
-
-camera {
-	location<0,40,50>
-	look_at<0,30,-60>
-}
-
-/* camera { */
-/* 	location<30,50,0> */
-/* 	look_at<30,0,0> */
-/* } */
-
-/* camera { */
-/* 	location<0,5,-5> */
-/* 	look_at<35,5,-5> */
-/* } */
-
-/* camera { */
-/* 	camera_original */
-/* } */
-
-/* camera { */
-/* 	location<0,200,0> */
-/* 	look_at<0,0,0> */
-/* } */
 
 union {
 	object { full_panel }
@@ -83,13 +54,6 @@ object { room_border rotate<0,0,0> translate <0,4.5,0>}
 object { room_border rotate<0,90,0> translate <0,4.5,0>}
 object { room_border rotate<0,-90,0> translate <0,4.5,0>}
 object { room_border rotate<0,180,0> translate <0,4.5,0>}
-
-/* plane { */
-/* 	<0,1,0>, 5 */
-/* 	texture { */
-/* 		carpet */
-/* 	} */
-/* } */
 
 difference {
 	object {

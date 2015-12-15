@@ -1,9 +1,15 @@
-#include "colors.inc"
-#include "camera.inc"
+#ifndef(control_panel)
+#declare control_panel = version;
+#version 3.7;
 
-camera {
-	camera_back
-}
+#include "colors.inc"
+#include "cameras.inc"
+#include "textures.inc"
+#include "lights.inc"
+
+/* camera { */
+/* 	camera_original */
+/* } */
 
 /* camera { */
 /* 	location<3,30,3> */
@@ -15,13 +21,26 @@ camera {
 		<0,0,0,>, <30,5,8>
 		texture {
 			pigment { color rgb<1.0,0.15,0.0> }
-			finish { phong 0.1 reflection 0.0 }
+			finish {
+				diffuse 1
+				ambient 0.5
+				phong 0.8
+				phong_size 200
+				reflection 0
+			}
 		}
 	}
 	box {
 		<0,0,0>, <32,5,9>
 		texture {
 			pigment { color Black }
+			finish {
+				diffuse 1
+				ambient 0.5
+				phong 0.8
+				phong_size 200
+				reflection 0
+			}
 		}
 		rotate<10,0,0>
 		translate<-1,5,0>
@@ -30,6 +49,13 @@ camera {
 		<0,0,0>, <32,5,9>
 		texture {
 			pigment { color Black }
+			finish {
+				diffuse 1
+				ambient 0.5
+				phong 0.8
+				phong_size 200
+				reflection 0
+			}
 		}
 		rotate<30,0,0>
 		translate<-1,0,6>
@@ -103,7 +129,16 @@ camera {
 	<0,0>, <0.5,1.5>, <-0.5,1.5>
 	rotate<90,90,0>
 	/* translate<5,5,-10> */
-	pigment { color Orange }
+	texture {
+		pigment { color Yellow }
+		finish {
+			diffuse 1
+			ambient 0.5
+			phong 0.8
+			phong_size 200
+			reflection 0.3
+		}
+	}
 }
 
 #declare panel = union {
@@ -127,21 +162,17 @@ camera {
 		rotate<0,90,0>
 		translate<13,-11.5,-0.5>
 		texture {
-			pigment { color White }
-			finish { phong 0.1 reflection 0.0 }
+			pigment { color Gray50 }
+			finish {
+				diffuse 1
+				ambient 0.6
+				phong 1
+				phong_size 200
+				reflection 0
+			}
 		}
 	}
 }
-
-/* camera { */
-/* 	location<2,20, 2> */
-/* 	look_at<2,0,2> */
-/* } */
-
-/* camera { */
-/* 	location<-20,6, 2> */
-/* 	look_at<2,6,2> */
-/* } */
 
 #declare small_radar_box = union {
 	difference {
@@ -163,19 +194,28 @@ camera {
 			rotate<10,0,0>
 			translate<-0.5,6,0>
 		}
-		pigment { color White }
 	}
 	box{
 		<0,0,0>, <1,1,0>
 		pigment {
 			image_map {
-				png "small_radar.png"
+				png "../img/small_radar.png"
 				once
 			}
 		}
 		scale<4,2,1>
 		rotate<100,0,0>
 		translate<1,6,0.001>
+	}
+	texture {
+		pigment { color Gray50 }
+		finish {
+			diffuse 1
+			ambient 0.6
+			phong 1
+			phong_size 200
+			reflection 0
+		}
 	}
 }
 
@@ -190,7 +230,6 @@ camera {
 			<0,0,0> <11,25,20>
 			rotate<-45,0,0>
 			translate<-0.5,6,0>
-			pigment { color White }
 		}
 		rotate<0,180,0>
 	}
@@ -198,7 +237,7 @@ camera {
 		<0,0,0>, <1,1,0>
 		pigment {
 			image_map {
-				png "radar.png"
+				png "../img/radar.png"
 				once
 			}
 		}
@@ -210,11 +249,22 @@ camera {
 		small_radar_box
 		translate<-8,0,0>
 	}
+	texture {
+		pigment { color Gray50 }
+		finish {
+			diffuse 1
+			ambient 0.6
+			phong 1
+			phong_size 200
+			reflection 0
+		}
+	}
 }
 
 #declare full_panel = union {
 	object { panel_with_support }
 	object { radar_box translate<20,-11.5,12> }
 }
+/* object { full_panel } */
 
-object { full_panel }
+#end

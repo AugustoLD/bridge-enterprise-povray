@@ -1,7 +1,11 @@
-#include "camera.inc"
+#ifndef(wall)
+#declare wall = version;
+#version 3.7;
+
+#include "cameras.inc"
 #include "colors.inc"
 #include "shapes3.inc"
-#include "my_textures"
+#include "my_textures.inc"
 #include "textures.inc"
 
 /* camera { */
@@ -27,7 +31,7 @@
 	<0,0,0>, <1,1,0>
 	pigment {
 		image_map {
-			png "back.png"
+			png "../img/back.png"
 			once
 		}
 		/* color Gray */
@@ -39,7 +43,7 @@
 	<0,0,0> ,<1,1,0>
 	pigment {
 		image_map {
-			png "door.png"
+			png "../img/door.png"
 			once
 		}
 	}
@@ -93,6 +97,9 @@
 		translate<60,7.5,30>
 		texture {
 			Glass
+			finish {
+				reflection 0
+			}
 		}
 	}
 	rotate<0,180,0>
@@ -113,7 +120,9 @@
 		box {
 			<0,0,0>, <200,37,80>
 			translate<-80,-1,-130>
-		}
+			}
 	}
 	object { wall_view }
 }
+
+#end

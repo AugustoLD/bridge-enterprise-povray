@@ -1,17 +1,23 @@
-#include "camera.inc"
-#include "room_elements.pov"
+#ifndef(chairs)
+#declare chairs = version;
+#version 3.7;
+
+#include "cameras.inc"
+#include "lights.inc"
+#include "room_elements.inc"
 #include "shapes.inc"
 #include "textures.inc"
+#include "colors.inc"
 
-camera {
-	location<-8,20,16>
-	look_at<0,10,10>
-}
+/* camera { */
+/* 	location<-8,20,16> */
+/* 	look_at<0,10,10> */
+/* } */
 
-camera {
-	location<8,10,-20>
-	look_at<8,10,0>
-}
+/* camera { */
+/* 	location<8,10,-20> */
+/* 	look_at<8,10,0> */
+/* } */
 
 /* camera { */
 /* 	location<-10,20,30> */
@@ -23,9 +29,9 @@ camera {
 /* 	look_at<8.5,0,0> */
 /* } */
 
-camera {
-	camera_original
-}
+/* camera { */
+/* 	camera_original */
+/* } */
 
 
 /* camera { */
@@ -36,11 +42,11 @@ camera {
 #declare captain_chair_base = union {
 	box {
 		<0,0,0>, <16,3,7>
-		pigment { color Gray }
+		pigment { color Gray50 }
 	}
 	cylinder {
 		<0,0,0>, <0,6,0>, 3
-		pigment { color Gray }
+		pigment { color Gray50 }
 		translate<8,0,7>
 	}
 }
@@ -50,7 +56,7 @@ camera {
 	0, 2.5, 5,
 	<0,0>, <7, -1>, <7,6>, <3,8>, <0,8>
 	rotate<0,0,90>
-	pigment { color Gray }
+	pigment { color Gray50 }
 }
 
 #declare captain_chair_structure = union {
@@ -67,7 +73,16 @@ camera {
 #declare captain_chair_base_structure = union {
 	object { captain_chair_base }
 	object { captain_chair_structure translate<4,6,3.5> }
-	texture { Soft_Silver }
+	texture {
+		pigment { color Gray50 }
+		finish {
+			diffuse 1
+			ambient 0.6
+			phong 1
+			phong_size 200
+			reflection 0
+		}
+	}
 }
 
 #declare captain_chair_upholster_arm = object {
@@ -119,6 +134,16 @@ camera {
 		Round_Box(<0,0,0>, <8,3,0.1>, 0.3, 0)
 		translate<0,5.4,8.3>
 	}
+	texture {
+		pigment { color Black }
+		finish {
+			diffuse 1
+			ambient 0.6
+			phong 1
+			phong_size 200
+			reflection 0.008
+		}
+	}
 }
 
 #declare captain_chair = union {
@@ -127,3 +152,5 @@ camera {
 	object { captain_chair_arm_detail translate<4,13,3.5> }
 	object { captain_chair_arm_detail translate<11.6,13,3.5> }
 }
+
+#end

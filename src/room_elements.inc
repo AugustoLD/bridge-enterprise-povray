@@ -1,27 +1,31 @@
+#ifndef(room_elements)
+#declare room_elements = version;
+#version 3.7;
+
 #include "control_panel.inc"
-#include "camera.inc"
+#include "cameras.inc"
 #include "shapes3.inc"
 
-camera {
-	location <15,70,22.5>
-	look_at <15,0,22.5>
-}
+/* camera { */
+/* 	location <15,70,22.5> */
+/* 	look_at <15,0,22.5> */
+/* } */
 
-camera {
-	location<7.5, 4, -30>
-	look_at<7.5,0,0>
-}
+/* camera { */
+/* 	location<7.5, 4, -30> */
+/* 	look_at<7.5,0,0> */
+/* } */
 
 
-camera {
-	location<-80,20,-40>
-	look_at<0,0,0>
-}
+/* camera { */
+/* 	location<-80,20,-40> */
+/* 	look_at<0,0,0> */
+/* } */
 
-camera {
-	location<10,20,-5>
-	look_at<0,10,-10>
-}
+/* camera { */
+/* 	location<10,20,-5> */
+/* 	look_at<0,10,-10> */
+/* } */
 
 /* camera { */
 /* 	location<0,100,0> */
@@ -148,3 +152,5 @@ camera {
 	object { room_border_pillar rotate<0,-72,0> translate <-13.2, 0, -41.8> }
 	translate <0.5,0,0.5>
 }
+
+#end

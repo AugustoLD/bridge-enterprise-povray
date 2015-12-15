@@ -1,3 +1,7 @@
+#ifndef(my_textures)
+#declare my_textures = version;
+#version 3.7;
+
 #declare T_Grnt6 = texture {
 	pigment {
 		granite turbulence 0.5
@@ -26,3 +30,5 @@
 		color rgb<54/255,65/255,61/255>
 	}
 }
+
+#end
